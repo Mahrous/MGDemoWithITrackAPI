@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/debug/res/font/font.xml" value="0.20052083333333334" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable-v24/ic_hide_password.xml" value="0.113" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable-v24/ic_rectangle_286.xml" value="0.1" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable-v24/shape_gradiant_radius_less.xml" value="0.175" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable-v24/shape_profile.xml" value="0.1" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable-v24/shape_profile2.xml" value="0.136" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/active_dot.xml" value="0.1225" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/button_menu_background.xml" value="0.183" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_asterisk.xml" value="0.1" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.1075" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_hide_password.xml" value="0.183" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/shape_doc_.xml" value="0.113" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/shape_gradiant_radius_less.xml" value="0.1" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/white_background.xml" value="0.1445" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_add_device.xml" value="0.22" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_all_device.xml" value="0.1828125" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_main.xml" value="0.18106995884773663" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/single_row_device.xml" value="0.1828125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

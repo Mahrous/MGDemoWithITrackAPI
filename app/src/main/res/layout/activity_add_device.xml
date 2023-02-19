@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.mahrous.mgtrackingdemo.ui.addDevice.AddDevice" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".ui.addDevice.AddDevice">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/constraintLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/colorPrimary"
+                    android:elevation="10dp"
+                    android:gravity="center_vertical"
+                    android:padding="20dp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:src="@drawable/ic_baseline_clear_24" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:foregroundGravity="center"
+                        android:gravity="center"
+                        android:text="Add Device"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:visibility="visible" />
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_profile2"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="10dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@color/colorPrimary"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="Driver First name"
+                                android:textColor="@color/black"
+                                android:textSize="17sp"
+                                android:visibility="visible" />
+
+                            <EditText
+                                android:id="@+id/first_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_rectangle_286"
+                                android:hint="Driver First name"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="14dp"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@color/colorPrimary"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="Driver First name"
+                                android:textColor="@color/black"
+                                android:textSize="17sp"
+                                android:visibility="visible" />
+
+                            <EditText
+                                android:id="@+id/lastName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_rectangle_286"
+                                android:hint="Driver First name"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="14dp"
+                                android:textColor="@color/black"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:drawableEnd="@drawable/ic_asterisk"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/colorPrimary"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="Itrack UserName"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_rectangle_286"
+                        android:orientation="horizontal"
+                        android:padding="1dp">
+
+
+                        <EditText
+                            android:id="@+id/userName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/gray_box"
+                            android:hint="Itrack UserName"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="13dp"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:drawableEnd="@drawable/ic_asterisk"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/colorPrimary"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="Itrack Password"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_rectangle_286"
+                        android:hint="Itrack Password"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="14dp"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:drawableEnd="@drawable/ic_asterisk"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/colorPrimary"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="Device Serial"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:inputType="number"
+                        android:id="@+id/serial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_rectangle_286"
+                        android:hint="Device Serial"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="14dp"
+                        android:textColor="@color/black"
+                        android:textSize="13sp" />
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="50dp">
+
+                        <TextView
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/addDevice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_gradiant_radius_less"
+                            android:gravity="center"
+                            android:padding="15dp"
+                            android:text="Add Device"
+                            android:textColor="@color/white"
+                            android:textSize="15sp" />
+
+
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+   >
+
+    <LinearLayout
+        android:padding="10dp"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:drawableTint="@color/colorPrimary"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Driver First name"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Happy001"
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/serial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="105557894445687400"
+            android:textColor="@color/gray"
+            android:textSize="13sp"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
