@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.accounts.AccountManager;
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -17,29 +16,23 @@ import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.common.AccountPicker;
 import com.google.android.material.snackbar.Snackbar;
 import com.mahrous.mgtrackingdemo.R;
 import com.mahrous.mgtrackingdemo.Utility.Codes;
 import com.mahrous.mgtrackingdemo.Utility.Param;
+import com.mahrous.mgtrackingdemo.data.AccessTokenGetResponse;
 import com.mahrous.mgtrackingdemo.data.GeneralModel;
 import com.mahrous.mgtrackingdemo.databinding.ActivityRegisterBinding;
 import com.mahrous.mgtrackingdemo.network.InternetConnection;
+import com.mahrous.mgtrackingdemo.ui.mainActivity.MainActivity;
 import com.mahrous.mgtrackingdemo.ui.login.Login;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
 
 public class Register extends AppCompatActivity {
 
@@ -52,8 +45,8 @@ public class Register extends AppCompatActivity {
     String img = "";
     Handler handler = new Handler();
     Runnable runnable2;
-    String name;
-    String email;
+    String name , email , password , phone , accessToken;
+
 
 
 
@@ -104,13 +97,13 @@ public class Register extends AppCompatActivity {
 
     void continueRegistration() {
         checkValidation();
-        String student_name = binding.nameTf.getText().toString().trim();
-        String student_email = binding.email.getEditText().getText().toString().trim();
-        String password = binding.password.getEditText().getText().toString().trim();
-        String phone = binding.phone.getEditText().getText().toString().trim();
+         name = binding.nameTf.getText().toString().trim();
+         email = binding.email.getEditText().getText().toString().trim();
+         password = binding.password.getEditText().getText().toString().trim();
+         phone = binding.phone.getEditText().getText().toString().trim();
 
         if (
-                checkName() ||
+                         checkName() ||
                         checkPhone() ||
                         checkEmail() ||
                         checkPass()
@@ -121,8 +114,10 @@ public class Register extends AppCompatActivity {
             checkPhone();
         } else {
             Log.e("TAG", "onclick: " + "Arrive");
-            viewModel.signUp(student_name, student_email, phone, password);
-            setSharedPreferences(preferences, student_email, student_name);
+            viewModel.getAccessToken(binding.passwordTf.getText().toString().trim(),
+                    binding.nameTf.getText().toString().trim());
+
+
         }
     }
 
@@ -138,8 +133,8 @@ public class Register extends AppCompatActivity {
     }
 
     boolean checkName() {
-        String student_name = binding.name.getEditText().getText().toString().trim();
-        if (student_name.isEmpty()) {
+        String name = binding.name.getEditText().getText().toString().trim();
+        if (name.isEmpty()) {
             binding.name.setError("Enter Name");
             //  name.requestFocus();
             return true;
@@ -153,13 +148,13 @@ public class Register extends AppCompatActivity {
     }
 
     boolean checkEmail() {
-        String student_email = binding.email.getEditText().getText().toString().trim();
-        if (student_email.isEmpty()) {
+        String email = binding.email.getEditText().getText().toString().trim();
+        if (email.isEmpty()) {
             binding.email.setError("Enter Email");
             //    email.requestFocus();
             return true;
 
-        } else if (!student_email.matches(Param.EMAIL_PATTERN)) {
+        } else if (!email.matches(Param.EMAIL_PATTERN)) {
             binding.email.setError("Invalid Email");
             //   email.requestFocus();
             return true;
@@ -208,7 +203,6 @@ public class Register extends AppCompatActivity {
 
 
 
-
     void setUpComponents() {
         viewModel.mutableLiveData.observeForever(new Observer<Object>() {
             @Override
@@ -220,6 +214,7 @@ public class Register extends AppCompatActivity {
 
                     if (generalModel.getStatusCode() == 1) {
                         Intent intent = new Intent(Register.this, Login.class);
+                        intent.putExtra("accessToken" , accessToken) ;
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         finish();
@@ -235,6 +230,31 @@ public class Register extends AppCompatActivity {
 
             }
         });
+
+        viewModel.mutableLiveDataAccessToken.observeForever(new Observer<Object>() {
+            /**
+             * Called when the data is changed.
+             *
+             * @param o The new data
+             */
+            @Override
+            public void onChanged(Object o) {
+                if (o instanceof AccessTokenGetResponse) {
+                    if (((AccessTokenGetResponse) o).getCode()==0) {
+                        Log.e("TAG", "onChanged: " + "  I am At Get AccessToken" );
+                        accessToken = ((AccessTokenGetResponse) o).getRecord().getAccess_token();
+                        viewModel.signUp(name, email, phone, password);
+                        setSharedPreferences(preferences, email, name , password);
+
+                    }  else {
+                        binding.password.setError("Check Password");
+                        binding.name.setError("Check UserName");
+                    }
+                }
+            }
+        });
+
+
 
         binding.goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -471,18 +491,21 @@ public class Register extends AppCompatActivity {
     }
 
 
-    private void setSharedPreferences(SharedPreferences sharedPref, String email, String name) {
-        sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+    private void setSharedPreferences(SharedPreferences sharedPref, String email, String name , String password) {
+        sharedPref = getSharedPreferences(Param.NAME_SHARED_PREFERENCE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        if ( sharedPref.getString("email", "") == null)
+        if ( sharedPref.getString(Param.email, "") == null)
         {
             editor = preferences.edit();
-            editor.putString("name", name);
-            editor.putString("email",email);
+
+            editor.putString(Param.username, name);
+            editor.putString(Param.email,email);
+            editor.putString(Param.password,password);
             editor.apply();
         }else {
-            editor.putString("name", name);
-            editor.putString("email", email);
+            editor.putString(Param.username, name);
+            editor.putString(Param.email, email);
+            editor.putString(Param.password, password);
             editor.commit();
         }
 

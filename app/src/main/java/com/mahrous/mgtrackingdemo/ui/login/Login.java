@@ -22,7 +22,7 @@ import com.mahrous.mgtrackingdemo.Utility.Param;
 import com.mahrous.mgtrackingdemo.data.UserResponse;
 import com.mahrous.mgtrackingdemo.databinding.ActivityLoginBinding;
 import com.mahrous.mgtrackingdemo.network.InternetConnection;
-import com.mahrous.mgtrackingdemo.ui.MainActivity;
+import com.mahrous.mgtrackingdemo.ui.mainActivity.MainActivity;
 import com.mahrous.mgtrackingdemo.ui.register.Register;
 
 public class Login extends AppCompatActivity {
@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
         if (checkPass() || checkEmail()) {
         } else {
             Log.e("TAG", "continueRegistration: i am done Email = " + email + "password = " + password);
-            viewModel.login(email,password);
+            viewModel.login(email, password);
         }
 
     }
@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
             binding.emailAddress.setError("Data is required");
             return true;
 
-        }  else {
+        } else {
             binding.emailAddress.setError(null);
 
             return false;
@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                 if (InternetConnection.checkInternetConnection(Login.this)) {
                     continueLogin();
                 } else {
-                    Snackbar.make(view,"Please check internet", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, "Please check internet", Snackbar.LENGTH_LONG).show();
 
                 }
             }
@@ -173,7 +173,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
+        binding.loginAsGuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, MainActivity.class).putExtra("LOGIN_AS_A_GUEST", 1));
+            }
+        });
         viewModel.mutableLiveData.observeForever(new Observer<Object>() {
             /**
              * Called when the data is changed.
@@ -226,12 +231,14 @@ public class Login extends AppCompatActivity {
             editor.putString(Param.username, model.getUsername());
             editor.putString(Param.email, model.getEmail());
             editor.putString(Param.mobile, model.getMobile());
+            editor.putString(Param.password, model.getPassword());
             editor.putInt(Param.id, model.getId());
             editor.apply();
         } else {
             editor.putString(Param.username, model.getUsername());
             editor.putString(Param.email, model.getEmail());
             editor.putString(Param.mobile, model.getMobile());
+            editor.putString(Param.password, model.getPassword());
             editor.putInt(Param.id, model.getId());
             editor.apply();
         }

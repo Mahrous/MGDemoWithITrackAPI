@@ -13,16 +13,23 @@
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/button_menu_background.xml" value="0.183" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_asterisk.xml" value="0.1" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.1075" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_group_215.xml" value="0.131" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_hide_password.xml" value="0.183" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1315" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/shape_doc_.xml" value="0.113" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/shape_gradiant_radius_less.xml" value="0.1" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/drawable/white_background.xml" value="0.1445" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_add_device.xml" value="0.22" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_add_main_account.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_all_device.xml" value="0.1828125" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_main.xml" value="0.18106995884773663" />
-        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_register.xml" value="0.22" />
-        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/single_row_device.xml" value="0.1828125" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/activity_splash_screen.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/alert_dialog.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/layout/single_row_device.xml" value="0.22" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1315" />
+        <entry key="..\:/Users/Mahrous/Desktop/MGTrackingDemo/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1315" />
       </map>
     </option>
   </component>

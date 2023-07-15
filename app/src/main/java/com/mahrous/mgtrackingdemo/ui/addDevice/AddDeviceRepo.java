@@ -20,13 +20,11 @@ import retrofit2.http.Query;
 public class AddDeviceRepo {
     public ApiInterface apiInterface;
     public MutableLiveData<Object> mutableLiveData;
-    public MutableLiveData<Object> mutableLiveDataAccessToken;
     public MutableLiveData<Object> mutableLiveDataTracking;
 
     public AddDeviceRepo() {
         this.apiInterface = ApiUtils.getAPIService();
         this.mutableLiveData = new MutableLiveData<>();
-        this.mutableLiveDataAccessToken = new MutableLiveData<>();
         this.mutableLiveDataTracking = new MutableLiveData<>();
     }
 
@@ -67,35 +65,6 @@ public class AddDeviceRepo {
     }
 
 
-    public MutableLiveData<Object> getAccessToken(String password, String account) {
-
-        apiInterface.getAccessToken(password, account).subscribeOn(Schedulers.io()).subscribe(new Observer<AccessTokenGetResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onNext(AccessTokenGetResponse addDeviceResponse) {
-                Log.e("TAG", "onError: ");
-
-                mutableLiveDataAccessToken.postValue(addDeviceResponse);
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                mutableLiveDataAccessToken.postValue(e);
-                Log.e("TAG", "onError: " + e.getMessage());
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
-
-        return mutableLiveDataAccessToken;
-    }
 
 
 
@@ -118,7 +87,7 @@ public class AddDeviceRepo {
 
             @Override
             public void onNext(TrackingResponse addDeviceResponse) {
-                Log.e("TAG", "onError: ");
+                Log.e("TAG", "onNext: weeeee");
 
                 mutableLiveDataTracking.postValue(addDeviceResponse);
             }
@@ -126,7 +95,7 @@ public class AddDeviceRepo {
             @Override
             public void onError(Throwable e) {
                 mutableLiveDataTracking.postValue(e);
-                Log.e("TAG", "onError: " + e.getMessage());
+                Log.e("TAG", "onError: err = " + e.getMessage());
             }
 
             @Override

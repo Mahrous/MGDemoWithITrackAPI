@@ -4,12 +4,14 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import com.mahrous.mgtrackingdemo.Utility.GlobalViewModel;
+import com.mahrous.mgtrackingdemo.ui.addDevice.AddDeviceRepo;
 
 public class RegisterViewModel extends GlobalViewModel {
 
     public MutableLiveData<Object> check_email = new MutableLiveData<>();
     public MutableLiveData<Object> check_phone = new MutableLiveData<>();
     MutableLiveData<Object> MutableLiveDataCompany = new MutableLiveData<>();
+    public MutableLiveData<Object> mutableLiveDataAccessToken =  new MutableLiveData<>();
 
     public void checkEmail(String email) {
         RegisterRepo repo = new RegisterRepo();
@@ -77,6 +79,26 @@ public class RegisterViewModel extends GlobalViewModel {
 
             }
         });
+    }
+
+
+
+
+
+    public void getAccessToken(String password, String account){
+        RegisterRepo repo = new RegisterRepo();
+        repo.getAccessToken(password, account).observeForever(new Observer<Object>() {
+            /**
+             * Called when the data is changed.
+             *
+             * @param o The new data
+             */
+            @Override
+            public void onChanged(Object o) {
+                mutableLiveDataAccessToken.setValue(o);
+            }
+        });
+
     }
 
 

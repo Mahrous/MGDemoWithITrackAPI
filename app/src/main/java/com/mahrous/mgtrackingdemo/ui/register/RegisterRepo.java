@@ -4,6 +4,7 @@ import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.mahrous.mgtrackingdemo.data.AccessTokenGetResponse;
 import com.mahrous.mgtrackingdemo.data.GeneralModel;
 import com.mahrous.mgtrackingdemo.network.ApiInterface;
 import com.mahrous.mgtrackingdemo.network.ApiUtils;
@@ -19,12 +20,46 @@ public class RegisterRepo {
     public ApiInterface apiInterface;
     public MutableLiveData<Object> mutableLiveData;
     public MutableLiveData<Object> checkEmail;
+    public MutableLiveData<Object> mutableLiveDataAccessToken;
 
     public RegisterRepo() {
         this.apiInterface = ApiUtils.getAPIService();
         this.mutableLiveData = new MutableLiveData<>();
         this.checkEmail = new MutableLiveData<>();
+        this.mutableLiveDataAccessToken = new MutableLiveData<>();
     }
+
+    public MutableLiveData<Object> getAccessToken(String password, String account) {
+
+        apiInterface.getAccessToken(password, account).subscribeOn(Schedulers.io()).subscribe(new Observer<AccessTokenGetResponse>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(AccessTokenGetResponse addDeviceResponse) {
+                Log.e("TAG", "onError: ");
+
+                mutableLiveDataAccessToken.postValue(addDeviceResponse);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mutableLiveDataAccessToken.postValue(e);
+                Log.e("TAG", "onError: " + e.getMessage());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+
+        return mutableLiveDataAccessToken;
+    }
+
+
 
     public MutableLiveData<Object> checkEmail(String email) {
         apiInterface.checkEmail(email).subscribeOn(Schedulers.io()).subscribe(new Observer<GeneralModel>() {

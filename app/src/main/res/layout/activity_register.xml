@@ -102,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:hint="Name"
+                    android:hint="ITrack User Name"
                     app:endIconTint="@color/colorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +116,45 @@
                         android:maxLines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/student_signup_email">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/password"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="ITrack Password"
+                        app:boxStrokeColor="@color/colorPrimary"
+                        app:endIconDrawable="@drawable/ic_hide_password"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="#CCCCCC"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:passwordToggleDrawable="@drawable/ic_hide_password">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password_tf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:maxLines="1" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phone"
@@ -158,42 +197,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/student_signup_email">
-
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/password"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Password"
-                        app:boxStrokeColor="@color/colorPrimary"
-                        app:endIconDrawable="@drawable/ic_hide_password"
-                        app:endIconMode="password_toggle"
-                        app:endIconTint="#CCCCCC"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:passwordToggleDrawable="@drawable/ic_hide_password">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/password_tf"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="textPassword"
-                            android:maxLines="1" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
                 <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
@@ -202,7 +205,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="80dp"
                     android:layout_weight="0"
                     android:background="@drawable/white_background"
                     android:backgroundTint="@color/colorPrimary"
@@ -221,7 +224,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="15dp">
 
                     <TextView
                         android:id="@+id/login_txt"

@@ -5,23 +5,17 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.mahrous.mgtrackingdemo.R;
 import com.mahrous.mgtrackingdemo.data.Device;
-import com.mahrous.mgtrackingdemo.network.InternetConnection;
-import com.mahrous.mgtrackingdemo.ui.MapsActivity;
+import com.mahrous.mgtrackingdemo.ui.map.MapsActivity;
 
 import java.util.List;
-
-import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHolder> {
     Context context;
@@ -65,12 +59,8 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MapsActivity.class);
-                intent.putExtra("userId", model.getId());
-                intent.putExtra("token",model.getAccess_token());
-                intent.putExtra("lat",model.getLatitude());
-                intent.putExtra("lon",model.getLongitude());
-                context.startActivity(intent);
+                itemClick.updateLocation(model.getSerial());
+
             }
         });
 
@@ -99,7 +89,7 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
 
     public interface ItemClick{
 
-        void accept (String companyId , String userId);
+        void updateLocation (String serial);
 
     }
 

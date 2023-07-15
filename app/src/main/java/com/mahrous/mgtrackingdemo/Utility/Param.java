@@ -25,10 +25,5 @@ public class Param {
     public static final String IMG = "image";
 
 
-
-
-
-
-
-
+    public static final String password= "password";
 }

@@ -7,6 +7,25 @@ public class UserResponse {
     String username;
     String email;
     String mobile;
+    String password;
+
+    public UserResponse(boolean succeeded, String message, int id, String username, String email, String mobile, String password) {
+        this.succeeded = succeeded;
+        this.message = message;
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.mobile = mobile;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public UserResponse(boolean succeeded, int id, String username, String email, String mobile) {
         this.succeeded = succeeded;

@@ -32,7 +32,7 @@ public interface ApiInterface {
 
     @POST("login.php")
     @FormUrlEncoded
-    Observable<UserResponse> login(@Field("email") String email, @Field("email") String password);
+    Observable<UserResponse> login(@Field("email") String email, @Field("password") String password);
 
     @POST("register.php")
     @FormUrlEncoded

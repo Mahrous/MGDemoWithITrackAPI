@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MGTrackingDemo">
         <activity
+            android:name=".ui.SplashScreen"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
             android:name=".ui.register.Register"
             android:exported="false" />
         <activity
@@ -17,24 +29,14 @@
             android:exported="false" />
         <activity
             android:name=".ui.allDevices.AllDevice"
-            android:exported="true" >
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".ui.addDevice.AddDevice"
-            android:exported="true" >
-
-
-        </activity>
+            android:exported="true" />
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".ui.mainActivity.MainActivity"
+            android:exported="true">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
@@ -42,11 +44,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".ui.MapsActivity"
+            android:name=".ui.map.MapsActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps">
-
-        </activity>
+            android:label="@string/title_activity_maps" />
     </application>
 
 </manifest>
